@@ -1,76 +1,372 @@
 html, body, #home{
     height: 100%;
+    overflow-x: hidden;
+    background-color: black;
 }
 
-#home{
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+#background {
     background: url(../images/TOP_img_DS3.jpg) no-repeat center center;
-    position: relative;
-    display: block;
-    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100vh;
     background-size: cover;
-    z-index: -1;
-    /* background-color: rgba(0, 0, 0, .45); */
+    z-index: 1;
+    filter: blur(8px);
+    transition: filter 1.5s ease-in-out;
 }
 
-#home::before{
+#background::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
 }
 
-.main_menu ul li{
-    margin: 0 50vh;
+/* Quando a página carregar */
+#background.loaded {
+    filter: blur(0);
+}
+
+#background.loaded::before {
+    opacity: 0;
+}
+
+/* -----------------------------------  Home*/
+
+#home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove transições e efeitos desnecessários */
+#home.loaded {
+    filter: none;
+}
+
+#home::before {
+    content: none;
+}
+
+
+
+/* -----------------------------------  Main menu*/
+
+.main_menu{
+    margin-bottom: 3em;
+    padding-bottom: 3em;
+}
+
+.main_menu ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 4em;
+}
+
+.main_menu a{
+    opacity: .5;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.main_menu a:hover{
+    opacity: 1;
+}
+
+.main_menu>ul>li {
+    display: inline-block;
+    flex-basis: auto;
+}
+
+.navbar-nav {
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+/* -----------------------------------  Information*/
+ 
+#information{
+    color: white;
+    position: absolute;
+    bottom: 13em;
+    left: 3em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#information a{
+    text-decoration: none;
+    color: white;
+    line-height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+#information p{
+    font-size: 13px;
+    font-family: "Sawarabi Mincho",-apple-system,BlinkMacSystemFont,游明朝,"Yu Mincho",YuMincho,"Helvetica Neue","ヒラギノ明朝 ProN W6", HiraMinProN-W6,メイリオ,Meiryo,serif;
+    font-weight: 0;
+    letter-spacing: 1px;
+}
+
+#information ul li p {
+    margin: 0;
+    padding: 0;
+}
+
+/* -----------------------------------  Help*/
+
+#help{
+    position: absolute;
+    bottom: 10em;
+    left: 3em;
+}
+
+#help a{
+    font-size: 0.6em;
+    font-family: "Sawarabi Mincho",-apple-system,BlinkMacSystemFont,游明朝,"Yu Mincho",YuMincho,"Helvetica Neue","ヒラギノ明朝 ProN W6", HiraMinProN-W6,メイリオ,Meiryo,serif;
+    font-weight: 0;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: white;
+}
+
+#help ul li::before {
+    content: ">";
+    color: white;
+    letter-spacing: 4px;
+}
+
+/* -----------------------------------  Banner*/
+
+.dsRemastered {
+    position: absolute;
+    bottom: 10em;
+    right: 2em;
+    box-shadow: 0 0 2px 3px #6b584a;
+    z-index: 2; /* Mantém acima */
+}
+
+.dsRemastered img {
+    width: 260px;
+    height: 130px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.dsRemastered img:hover{
+    opacity: 1;
+}
+
+/* -----------------------------------  Footer & class*/
+
+footer{
+    border-top: 1px solid #2c2c2c;
+    background-color: black;
+    height: 137px;
+    width: 100%;
+    z-index: 1;
+    bottom: 1px;
+    position: absolute;
+}
+
+.content_footer {
+    position: absolute;
+    margin-top: 1em;
+    left: 2em;
+}
+
+.trade_reg{
+    width: 402px;
+    height: 39px;
+    position: absolute;
+}
+
+.authorial {
+    color: #acacac;
+    font-size: 8px;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-end;
+    gap: -5px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 2em;
+    bottom: 1em;
+}
+
+.authorial img{
+    width: 150px;
+    height: 13px;
+    margin-bottom: .5em;
+    margin-left: 11.5em;
+}
+
+.social{
+    z-index: 1;
+    position: absolute;
+    right: 1em;
+    top: 1.5em;
+}
+
+.social img{
+    width: 28px;
+    height: 28px;
+}
+
+.socialX, .socialF, .socialI{
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-size: cover;
+    background-position: center;
+    text-indent: -9999px;
+}
+
+.socialX {
+    background-image: url('../images/footer_sns_n_x.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.socialX::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/footer_sns_h_x.jpg');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.socialX:hover::after {
+    opacity: 1;
+}
+
+.socialF {
+    background-image: url('../images/footer_sns_n_f.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.socialF::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/footer_sns_h_f.jpg');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.socialF:hover::after {
+    opacity: 1;
+}
+
+.socialI {
+    background-image: url('../images/footer_sns_n_i.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.socialI::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/footer_sns_h_i.jpg');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.socialI:hover::after {
+    opacity: 1;
+}
+
+
+/* -----------------------------------  Image processing*/
+
+.logo{
+    padding-bottom: 1em;
+    width: 600px;
 }
 
 .logo, .main_menu{
     z-index: 2;
 }
 
-ul{
-    list-style: none;
-}
-  /* .center_menu {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 100%;
-    height: 100%;
-  }
-  .center_menu>img {
-    display: block;
-    width: 600px;
-    line-height: 0;
-    margin-bottom: .75em;
-  }
-  .center_menu>ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin-top: .75em;
-  }
-  .center_menu>ul>li {
-    padding: 0;
-    box-sizing: border-box;
-  }
+.news{
+    width: 65.31px;
 
-.center_menu>ul>li:nth-child(1) { width: calc( 1.2em * 3.882 ); }
-.center_menu>ul>li:nth-child(2) { width: calc( 1.2em * 6.728 ); }
-.center_menu>ul>li:nth-child(3) { width: calc( 1.2em * 5.047 ); }
-.center_menu>ul>li:nth-child(4) { width: calc( 1.2em * 9.522 ); }
-.center_menu>ul>li:not(:last-child) {
-  margin-right: 4em;
-} */
+}
+
+.concept{
+    width: 113.2px;
+}
+
+.lineup{
+    width: 84.8px;
+}
+
+.goods{
+    width: 160px;
+}
+
+.nintendo{
+    width: 35px;
+    height: 35px;
+}
+
+.ps4{
+    width: 99px;
+    height: 21px;
+    margin-top: 10px;
+}
+
+.ps3{
+    width: 69px;
+    height: 14px;
+    margin-top: 13px;
+}
+
+.xone{
+    width: 98px;
+    height: 21px;
+    margin-top: 12px;
+}
+
+.x360{
+    width: 98px;
+    height: 21px;
+    margin-top: 12px;
+}
+
+.steam{
+    width: 67px;
+    height: 21px;
+    margin-top: 12px;
+}
+
