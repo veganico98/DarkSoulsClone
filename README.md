@@ -1,7 +1,7 @@
 <div align="center">
-  <h1>Projeto Spotify Clone</h1> 
-  <p>Projeto feito no curso "Desenvolvimento Web completo" da Udemy.</p>
-  <p>Neste projeto, foram utilizados conceitos de HTML, CSS e Bootstrap</p>
+  <h1>Projeto Dark Souls Clone</h1> 
+  <p>Projeto feito com o intuito de treinar meus conhecimentos de front-end.</p>
+  <p>Neste projeto, foram utilizados conceitos de HTML, CSS, JS e Bootstrap</p>
 </div>
 
-<img src="imagens/SpotifyClone - index.png">
+<img src="images/DarkSoulsClone - index.png">
