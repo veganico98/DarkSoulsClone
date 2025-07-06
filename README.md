@@ -4,7 +4,6 @@
   <p>Projeto desenvolvido para aprimorar habilidades em desenvolvimento front-end.</p>
 </div>
 
-
 ---
 
 ## Sobre o Projeto
